@@ -28,6 +28,10 @@ This box is designed for educational purposes only. Thus, in order to own/pwn `N
 
 This machine is configure to have a static IP address for reason! which is `192.168.0.150`. I have test this machine on virtualbox and Proxmox. If you have try it on VMware and works, please let me know so that I can update this post.
 
-[Download N](https://mega.nz/#!IxVyxaCB!1CyONKh9jY7IhhcaIjE9AyGKCHGLD_DYMLbfiQtQrls)
+[Download From Here](https://mega.nz/#!IxVyxaCB!1CyONKh9jY7IhhcaIjE9AyGKCHGLD_DYMLbfiQtQrls)
+
+Hope you'll like it .. Enjoy and happy a new year!
+
+Yas3r
 
 
