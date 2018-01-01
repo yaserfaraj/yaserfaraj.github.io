@@ -2,7 +2,7 @@
 layout: post
 cover:  Fale
 cover: '/assets/images/cover3.jpg'
-title:  Imported VM to Proxmox
+title:  Import VM to Proxmox
 date:   2017-07-26 
 tags: ["Proxmox", "pentestLab"]
 subclass: 'post tag-test tag-content'
