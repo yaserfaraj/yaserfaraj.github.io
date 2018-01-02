@@ -15,6 +15,8 @@ Nineveh Virtual Machine is publicaly available! Happy new Year everybody! With b
 `Nineveh` has gotten good reputation at `hackthebox` platform since it has more than 255 likes so far. The machine now is retired which means that the machine is still available on `hackthebox` platform but it doesn't worth any points if you get the flags!
 
 This box is designed for educational purposes only. Thus, in order to own/pwn `Nineveh` machine, you need to have pentest skills such:
+  - Reconnaissance 
+  - Scanning
   - Web Application Pentest
   - Network skills
   - Forensics skills
