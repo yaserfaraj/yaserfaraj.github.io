@@ -28,7 +28,7 @@ root@yas3r:~# echo -ne 'FLAG' | xxd -a                       #convert TEXT to HE
 root@yas3r:~# echo -ne 'SOTB' | xxd -a
 00000000: 534f 5442                                SOTB      #convert TEXT to HEX
 root@yas3r:~# python -c "print hex(0x464c4147 ^ 0x534f5442)" #HEX XOR
-0x15031505 # compared it with the picture!! :)
+0x15031505 		# compared it with the picture!! :)
 root@yas3r:~#
 root@yas3r:~# echo '0x15031505' | xxd -r -p                 #convert HEX back to TEXT
 root@yas3r:~#
