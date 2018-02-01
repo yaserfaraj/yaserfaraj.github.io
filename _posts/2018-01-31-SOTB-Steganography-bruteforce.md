@@ -90,7 +90,7 @@ root@kali:~/SOTB/remote/Steghide-Brute-Force-Tool/test#
 ```
 which showed that the server name and the port number and the most import thing is a private key for the user!!!
 
-All component is there! so now just use ssh to login to the system! such
+All components are there! so now just use ssh to login to the system! such
 
 ```bash
 root@kali:~/SOTB/remote/# ssh team_server.shellontheborder.com -p 5035 -l muduser
