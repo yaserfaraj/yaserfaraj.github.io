@@ -86,7 +86,6 @@ BvhYl0KKHWsmQ9vtpPjrO9BgxZfl2qgn3yMxGCU/eEQy7sYYGnJ6lXgTfvilFjun
 WUgB+YdOMXcBQqKNrsXIG2ZyPdod8pJPP0ajH7igfWzATZ3FOfDZFosd39ntAmdK
 R+Q12f/0zOs4ZzbYk2wTwfMKbsHCc7JF7FXCqCGLlngZ6VlsChn8tcn/9fOZ4KKI
 +jwrkPmdo/w5ksA5DLAAwa1U3g+8O6smSqixW37Qg/jo3u7ijUQ15+WzS6D3jzTI
-root@kali:~/SOTB/remote/Steghide-Brute-Force-Tool/test# 
 ```
 which showed that the server name and the port number and the most import thing is a private key for the user!!!
 
@@ -97,7 +96,7 @@ root@kali:~/SOTB/remote/# ssh team_server.shellontheborder.com -p 5035 -l muduse
 ```
 
 this should let you connect to the server and read the flag :( and it propely should look like this:
-`FLAG{I_SHOULDNT_MISS_AN_EASY_FLAG_SUCH_THIS}`
+`FLAG{I_SHOULDNT_HAVE_MISS_AN_EASY_FLAG_SUCH_THIS}`
 
 For me, I will always begin the challenge using `strings` command in CTF events! :P
 
