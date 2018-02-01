@@ -1,7 +1,7 @@
 ---
 layout: post
 cover: True
-title: "SOTB2018 steganography BruteForce challenge"
+title: "SOTB2018 Steganography BruteForce"
 date:   2018-01-31 12:00:00
 tags: CTF SOTB steganography
 categories: 'CTF'
