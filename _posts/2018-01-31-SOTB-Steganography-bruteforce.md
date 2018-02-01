@@ -96,7 +96,8 @@ All components are there! so now just use ssh to login to the system! such
 root@kali:~/SOTB/remote/# ssh team_server.shellontheborder.com -p 5035 -l muduser
 ```
 
-this should let you connect to the server and read the flag :(
+this should let you connect to the server and read the flag :( and it propely should look like this:
+`FLAG{I_SHOULDNT_MISS_AN_EASY_FLAG_SUCH_THIS}`
 
 For me, I will always begin the challenge using `strings` command in CTF events! :P
 
