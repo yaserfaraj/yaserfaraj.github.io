@@ -9,13 +9,13 @@ navigation: True
 ---
 <br>
 For this challenge, I did almost completed it, but I really did silly mistake. Overall, I like this challenge but I wasn't able to get full points! because the time is up for the competetion!
-The real challenge the following image
+The real challenge is posted as the following image
 
 <p align="center">
   <img src="/assets/ctf/steg_chall.jpg" alt="Steg challenge - SOTB" />
 </p>
 
-The promt of the challenge said to brute force the image to get the secret!! so that I missed to run `strings` command on the image itself! stuiped me!!
+The prompt of the challenge said to brute force the image to get the secret!! so that I missed to run `strings` command on the image itself! stuiped me!!
 
 ```bash
 root@kali:~/SOTB/remote/# strings steg_chall.jpg 
@@ -53,7 +53,7 @@ Huh? It asked for a password which confirmed that we need to do password. I foun
 Using `for` loop in bash always works for me!
 
 ```bash
-root@kali:~/SOTB/remote/# for i in $(cat /root/SOTB/sotb_dictionary.txt); do echo '[+] Trying $i; steghide extract -sf steg_chall.jpg --passphrase $i; done 
+root@kali:~/SOTB/remote/# for i in $(cat /root/SOTB/sotb_dictionary.txt); do echo '[+] Trying ' $i; steghide extract -sf steg_chall.jpg --passphrase $i; done 
 steghide: could not extract any data with that passphrase!
 ...
 ...
