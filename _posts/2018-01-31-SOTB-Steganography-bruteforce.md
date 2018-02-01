@@ -101,6 +101,9 @@ this should let you connect to the server and read the flag :( and it propely sh
 
 For me, I will always begin the challenge using `strings` command in CTF events! :P
 
+
+PS: After talking to SOTB guys, they mentioned that there is still another puzzle!! Anyway I'm keeping this post as it is. it may help others in the future.
+
 Yasir
 
 
