@@ -13,6 +13,9 @@
 	{{ site.author.bio }}
 </div>
 {% endif %}
+		{% if site.author.hackthebox %}
+			<script src="{{ site.author.hackthebox }}"></script>
+		{% endif  %}
 
 <div id="contact-list" class="text-center">
 	<ul class="list-unstyled list-inline">
@@ -53,9 +56,6 @@
 			</a>
 		</li>
 		{% endif %}
-		{% if site.author.hackthebox %}
-			<script src="{{ site.author.hackthebox }}"></script>
-		{% endif  %}
 		<li>
 			<a class="btn btn-default btn-sm" href="{{ site.BASE_PATH }}/{{ site.rss_path }}">
 				<i class="fa fa-rss fa-lg"></i>
