@@ -12,8 +12,12 @@ navigation: True
 Hi everyone. We had a lot of fun at #sp4rkcon this weekend, and it was amazing as last year. I also met great people including `@earcmile` from SOTB. He told me that he re-published couple of web challenges from the `Shell On The Border` capture the flag. Thus, I re-did the challange and I would like to share it with you'all. 
 
 
+```http://ctf.fs2600.net:5013/```
+
+As usual, I started with scanning the port to get what we are dealing with as following:
+
 <p align="center">
-  <img src="/assets/images/tshirt.png" alt="T-shirt challenge - SOTB" />
+  <img src="/assets/images/flask/1-nmap.png" />
 </p>
 
 Discussed this with my team-mate about the string which before even started this challenge. We figured out that the string is `Hex`, and it looks like encrypted and the last string some sort looks like key `SOTB2018`.
