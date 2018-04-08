@@ -11,9 +11,7 @@ navigation: True
 
 Hi everyone. We had a lot of fun at #sp4rkcon this weekend, and it was amazing as last year. I also met great people including `@earcmile` from SOTB. He told me that he re-published couple of web challenges from the `Shell On The Border` capture the flag. Thus, I re-did the challange and I would like to share it with you'all. 
 
-You can find the challenge on: 
-
-`http://ctf.fs2600.net:5013/`
+You can find the challenge on: `http://ctf.fs2600.net:5013/`
 
 As usual, I started with scanning the port to get what we are dealing with as following:
 
@@ -21,56 +19,67 @@ As usual, I started with scanning the port to get what we are dealing with as fo
   <img src="/assets/images/flask/1-nmap.png" />
 </p>
 
-Discussed this with my team-mate about the string which before even started this challenge. We figured out that the string is `Hex`, and it looks like encrypted and the last string some sort looks like key `SOTB2018`.
+As obvious that we are dealing with `gunicorn flask 19.7.1` which is python framwork. By sending a `GET` request using `curl`, I can confirm the web app is up and running and showed the hint of the get parameter which is `name`!
 
-It took me an hour to solve this out because I have came across same encryption before.
+<p align="center">
+  <img src="/assets/images/flask/2-first-curl.png" />
+</p>
 
-I was thinking of `XOR` encryption but I need to confirm that before go any further! what I did is I know that the flag starts with `FLAG` string, so it is good idea to encrypt this using `XOR` and `SOTB2018` key.
+By doing some research (at that time), I found couple websites that gives a great details about exploting such a framework. References are attached on the end of this post.
 
+After many attempts, I was able to confirm this app has a `RCE` vulnerablity.
 
-```bash
-root@yas3r:~#                                                # Encrypt stage
-root@yas3r:~# echo -ne 'FLAG' | xxd -a                       #convert TEXT to HEX
-00000000: 464c 4147                                FLAG
-root@yas3r:~# echo -ne 'SOTB' | xxd -a
-00000000: 534f 5442                                SOTB      #convert TEXT to HEX
-root@yas3r:~# python -c "print hex(0x464c4147 ^ 0x534f5442)" #HEX XOR
-0x15031505 		# compared it with the picture!! :)
-root@yas3r:~#
-root@yas3r:~# echo '0x15031505' | xxd -r -p                 #convert HEX back to TEXT
-root@yas3r:~#
-root@yas3r:~#
-root@yas3r:~# python -c "print hex(0x15031505 ^ 0x534f5442)" #Decrypt stage
-0x464c4147
-root@yas3r:~# echo '0x464c4147' | xxd -r -p
-FLAG
-```
+<p align="center">
+  <img src="/assets/images/flask/3-rce.png" />
+</p>
 
-Now it's confirmed. It is time to do a python to do the magic. But there is something important here. The `key` has to be as same as the encrypt length! which means we need to repeate the `key` to be equal the encrypted message!
+It is obvious that the application returns the mathmatical operation of `1x2` and `2x4`
 
+By going through one of the reference, I was able to list `classes` that the framwork use:
 
-```python
-root@yas3r:~/SOTB/encryption# cat ../t-shirt.py
-enc = "\x15\x03\x15\x05\x49\x79\x6e\x50\x32\x2c\x3f\x27\x56\x6f\x45\x50\x36\x10\x13\x2b\x50\x43\x5e\x56\x0c\x2e\x3a\x26\x6d\x51\x5d\x54\x0c\x06\x0b\x25\x5d\x44\x6e\x4f\x32\x3c\x0b\x36\x5a\x59\x42\x67\x3f\x20\x21\x31\x4b\x6f\x45\x15\x20\x27\x3d\x30\x46\x11\x4c"
+<p align="center">
+  <img src="/assets/images/flask/4-list-classes.png" />
+</p>
 
-key = "\x53\x4f\x54\x42\x32\x30\x31\x38\x53\x4f\x54\x42\x32\x30\x31\x38\x53\x4f\x54\x42\x32\x30\x31\x38\x53\x4f\x54\x42\x32\x30\x31\x38\x53\x4f\x54\x42\x32\x30\x31\x38\x53\x4f\x54\x42\x32\x30\x31\x38\x53\x4f\x54\x42\x32\x30\x31\x38\x53\x4f\x54\x42\x32\x30\x31"
+As we can see that there are two classes. The first one is `string` and the other one is `objects`. The application lists the elemsts as an array which means str has index `0` and the objects class has index of `1`
 
+<p align="center">
+  <img src="/assets/images/flask/5-list-subclasses.png" />
+</p>
 
-decrypt = str()
+By listing all sub-classes of the object main class, we can see that it has many of functions (more than 250). Next, it is the time to find an interesting function that cause a `RCE` and if you are familier with `python` then the answer is `Popen`
+Using the find `Ctrl + F` to search for it and inded, it is there. But the challenge how to know the index location of the function (we have more than 250 elements in this array)? 
 
-for i in range(0, len(enc)):
-  decrypt += chr(ord(key[i]) ^ ord(enc[i]))
+To proof I am on the right track. I viewed the first and second elements as following:
 
-print "plaintext is: {0}".format(decrypt)
-```
+<p align="center">
+  <img src="/assets/images/flask/6-enumarate-array-position.png" />
+</p>
 
-AND BOOM!!
+<p align="center">
+  <img src="/assets/images/flask/7-enumarate-array-position2.png" />
+</p>
 
-```bash
-root@yas3r:~# python t-shirt.py
-plaintext is: FLAG{I_hacked_the_Gibson_and_all_I_got_was_this_lousy_t-shirt!}
-root@yas3r:~#
-```
+For me, I run a bash script that goes through 300 loop to list the function name and grep the `Popen` function and print its index location.
+
+<p align="center">
+  <img src="/assets/images/flask/9-bash-for-loop-automate-to-find-popen-fun.png" />
+</p>
+
+Great. We got the index location which is `228` and it is time to use this function to wirte a new file into /tmp to get the flag.
+
+<p align="center">
+  <img src="/assets/images/flask/10-got-flag-using-cmd.png" />
+</p>
+
+And here we got it :)
+
+Thanks for reading this article and I hope you like it.
+
+[1] ref: https://nvisium.com/resources/blog/2015/12/07/injecting-flask.html
+[2] ref: https://nvisium.com/resources/blog/2016/03/09/exploring-ssti-in-flask-jinja2.html
+
+Regards,
 
 Yas3r
 
