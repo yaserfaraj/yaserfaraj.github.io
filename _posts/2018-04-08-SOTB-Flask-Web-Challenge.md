@@ -11,8 +11,9 @@ navigation: True
 
 Hi everyone. We had a lot of fun at #sp4rkcon this weekend, and it was amazing as last year. I also met great people including `@earcmile` from SOTB. He told me that he re-published couple of web challenges from the `Shell On The Border` capture the flag. Thus, I re-did the challange and I would like to share it with you'all. 
 
+You can find the challenge on: 
 
-```http://ctf.fs2600.net:5013/```
+`http://ctf.fs2600.net:5013/`
 
 As usual, I started with scanning the port to get what we are dealing with as following:
 
