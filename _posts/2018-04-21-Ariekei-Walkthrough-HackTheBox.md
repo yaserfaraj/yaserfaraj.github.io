@@ -10,7 +10,7 @@ navigation: True
 <br>
 In this article, I am going to walk you through the steps of how hacking `Ariekei` machine. `Ariekei` is one of the best machines that I have ever played. This machine has been rated as a hard box and it is really does. It is built based on Docker technology which means that it has many containers in it. This box also requires a pivoting skills till you reach the goal of pwning this machine which is reading the `root.txt` flag. The target host IP address is: `10.10.10.65`
 
-##General enumerating the machine
+<h2>General enumerating the machine</h2>
 As usual, starting scan the target host using `nmap` tool for `65535` ports for any running service. The following is the scan output:
 <p align="center">
   <img src="/assets/images/Ariekei/1-nmap.png" />
@@ -26,7 +26,7 @@ For now, it is important to add those dns names into my `/etc/hosts` so that I c
 
 So far, we have good starting point. But let finish up which enumerate the other 2 ports just identifying what they are at least. By using `nc` connect to those ports, we can see that the target is using `ssh` service on both ports.
 
-##Enumerating HTTPS
+<h2>Enumerating HTTPS</h2>
 First, let scan `beehive.ariekei.htb` which seems same as `ariekei.htb` because it shows us the same page which is `the maintenance page`. Start scanning using `dirsearch` for looking any interesting files on the web server.
 <p align="center">
   <img src="/assets/images/Ariekei/3-dirsearch.png" />
@@ -125,4 +125,5 @@ In order to get an actual root access, I can update the `/hostOS/etc/passwd` pas
 It was a nice machine and learned a lot from it. Docker was a nice techn. that could be used in CTF and boot2root competitions. I hope you like this article.
 
 Regards,
+
 `Yas3r`
