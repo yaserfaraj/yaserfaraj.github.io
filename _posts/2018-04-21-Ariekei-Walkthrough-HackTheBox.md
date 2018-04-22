@@ -8,9 +8,11 @@ categories: 'HackTheBox'
 navigation: True
 ---
 <br>
-In this article, I am going to walk you through the steps of how hacking `Ariekei` machine. `Ariekei` is one of the best machines that I have ever played. This machine has been rated as a hard box and it is really does. It is built based on Docker technology which means that it has many containers in it. This box also requires a pivoting skills till you reach the goal of pwning this machine which is reading the `root.txt` flag. The target host IP address is: `10.10.10.65`
-
-<h2>General enumerating the machine</h2>
+In this article, I am going to walk you through the steps of how to hack `Ariekei` machine. `Ariekei` is one of the best machines that I have ever played. This machine has been rated as a hard box and it is really does. It is built based on Docker technology which means that it has many containers in it. This box also requires a pivoting skills till you reach the goal of pwning this machine which is reading the `root.txt` flag. The target host IP address is: `10.10.10.65`
+<p align="center">
+  <img src="/assets/images/Ariekei/0-rank.png" />
+</p>
+<h2>Scanning the machine</h2>
 As usual, starting scan the target host using `nmap` tool for `65535` ports for any running service. The following is the scan output:
 <p align="center">
   <img src="/assets/images/Ariekei/1-nmap.png" />
@@ -42,6 +44,7 @@ It looks that some sort of script is running here. One of important vulnerabilit
 </p>
 Getting funny face which it seems to me there is WebApp firewall `waf` but keeps this in mind for later use!
 
+<h2>Upload our shell/ImageTragick!</h2>
 Now let scan the other host that we found which `calvin.ariekei.htb` if it has any interesting app or will find if there any `waf` there too. As soon start the scanning, I found `upload` folder. Aha, we have uploader, and the title is `Image converter` which first thing came to my mind is `ImageTragick` vulnerability. Lets give it try and see what is the output but first will use sleep command to make sure the vulnerability works or not. As soon upload `exploit.mvg`, we can see that the web server sleeps for 10 seconds which confirms that the vulnerability works.
 <p align="center">
   <img src="/assets/images/Ariekei/6-ImageTragick.png" />
@@ -54,6 +57,7 @@ And as result, we make the target host send request to our web server to grab my
 <p align="center">
   <img src="/assets/images/Ariekei/8-webserver.png" />
 </p>
+<h2>Reverse Shell BUT!</h2>
 By executing the uploaded using python, I was successfully received the shell back to me.
 <p align="center">
   <img src="/assets/images/Ariekei/9-python-reverseshell.png" />
@@ -63,6 +67,7 @@ It is weird that we have a root access but by checking `/proc/1/cgroup`, it make
 <p align="center">
   <img src="/assets/images/Ariekei/10-ssh access.png" />
 </p>
+<h2>SSH to port 1022</h2>
 I also find a network topology for the entire network that is running on the host machine, and also found private and public keys under `.secret` folder. But the host doesn’t have any useful commands that helps me to go further. However, using that private key, I was able to login to the ssh on port 1022 and this time we logged in to another new docker container that has two interfaces which means connected to two networks (172.23.0.253 and 172.24.0.253).
 <p align="center">
   <img src="/assets/images/Ariekei/11-sshaccess2.png" />
@@ -72,7 +77,9 @@ Again we see the seem folder for the docker environment which is `/common`. Now 
 <p align="center">
   <img src="/assets/images/Ariekei/12-net-topology.png" />
 </p>
-Boom, we have gotten the network topology and it shows that we are logged into bastion-live docker machine which connects two networks. Now it also shows that `calvin and beehive` machines which are  behind a firewall as we expected. For now we need to reach `beehive` host from the internal network because it don’t have internal firewall, thus we still can use the `ShellShock` vulnerability that we tried from `bastion` machine. However, there is a problem which is curl is not installed on the system and we don’t have internet access to install it. The idea that I got is now to do reverse shell to my Kali machine and do that internally from my machine.
+Boom, we have gotten the network topology and it shows that we are logged into bastion-live docker machine which connects two networks. Now it also shows that `calvin and beehive` machines which are  behind a firewall as we expected. For now we need to reach `beehive` host from the internal network because it don’t have internal firewall, thus we still can use the `ShellShock` vulnerability that we tried from `bastion` machine. 
+<h2>Local/Remote Port forward</h2>
+However, there is a problem which is curl is not installed on the system and we don’t have internet access to install it. The idea that I got is now to do reverse shell to my Kali machine and do that internally from my machine.
 <p align="center">
   <img src="/assets/images/Ariekei/13-remote-port-forward.png" />
 </p>
@@ -80,6 +87,7 @@ We can also open local port 80 to forward to remote port 80 as following, both o
 <p align="center">
   <img src="/assets/images/Ariekei/14-local-port-forward.png" />
 </p>
+<h2>ShellShock exploit behind the Firewall</h2>
 I have successfully did remote port forward to my machine via port 8080 that forward to port 80 on host `172.24.0.2`. Then, tried to execute the curl command to exploit the application to print `Yas3r` which is my name.
 <p align="center">
   <img src="/assets/images/Ariekei/15-shellshock-payload.png" />
@@ -89,6 +97,7 @@ And finally receiving a reverse shell by executing the following command:
 <p align="center">
   <img src="/assets/images/Ariekei/16-shellshock-reverseshell.png" />
 </p>
+<h2>Getting user's flag</h2>
 Previously under `/common` folder, we found a containers folder that has the root password. Let’s try it.
 <p align="center">
   <img src="/assets/images/Ariekei/17-found-pass.png" />
@@ -109,6 +118,7 @@ Now, we have the private key and the passphrase. We are ready to login to the ma
 <p align="center">
   <img src="/assets/images/Ariekei/21-sshaccess.png" />
 </p>
+<h2>Getting root flag - Privilege escalation</h2>
 By running `id` command, we can see that this user `spanishdancer` is part of docker group which means he can manage the entire docker environment.
 <p align="center">
   <img src="/assets/images/Ariekei/22-docker.png" />
