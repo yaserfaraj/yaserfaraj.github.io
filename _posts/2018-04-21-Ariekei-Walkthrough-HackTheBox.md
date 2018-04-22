@@ -7,7 +7,6 @@ tags: CTF HackTheBox Hacking Docker
 categories: 'HackTheBox'
 navigation: True
 ---
-<br>
 <p>In this article, I am going to walk you through the steps of how to hack `Ariekei` machine. `Ariekei` is one of the best machines that I have ever played. This machine has been rated as a hard box and it is really does. It is built based on Docker technology which means that it has many containers in it. This box also requires a pivoting skills till you reach the goal of pwning this machine which is reading the `root.txt` flag. The target host IP address is: `10.10.10.65`</p>
 
 <p align="center">
