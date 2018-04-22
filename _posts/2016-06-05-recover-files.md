@@ -8,7 +8,6 @@ tags: ["forensics", "IT security"]
 categories: 'Forensics'
 navigation: True
 ---
-<br>
 Hello everyone, today I would like to share this article with you guys, because most of us, and I am one of them, delete or format drive unexpectedly. For this post, I have 64GB USB drive that formatted as FAT32. 
 
 requirements:

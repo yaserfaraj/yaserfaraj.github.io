@@ -9,7 +9,6 @@ subclass: 'post tag-test tag-content'
 categories: 'PentestLab'
 navigation: True
 ---
-
 <p>In this article, I would like to show you guys how to import Virtualbox or VMware machines into `Proxmox visualization 5`. First of all, for this article, I am going to pick one of `Vulnhub's machines` which is `Breach2` by the awesome guy `<a href="https://twitter.com/mrb3n813">@mrb3n</a>` Find it at <a href="https://download.vulnhub.com/breach/Breach-2_final2.1.zip">Link</a>.</p>
 <p>After downloading the VM machine, extract it and make sure it has OVA file. In my example, the file exists under name 'Breach-2_final2.1.ova'</p>
 

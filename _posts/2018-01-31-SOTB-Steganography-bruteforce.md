@@ -7,7 +7,6 @@ tags: CTF SOTB steganography
 categories: 'CTF'
 navigation: True
 ---
-<br>
 For this challenge, I did almost completed it, but I really did silly mistake. Overall, I like this challenge but I wasn't able to get full points! because the time is up for the competetion!
 The real challenge is posted as the following image
 

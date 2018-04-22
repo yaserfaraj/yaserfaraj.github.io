@@ -7,7 +7,6 @@ tags: CTF SOTB ITsecurity Encryption
 categories: 'CTF'
 navigation: True
 ---
-<br>
 Hi, It was a nice weekend at Fort Smith, Arkansas participating professional CTF `Shell On The Border`. It was an amazing event which has more 21 teams (4-players). First day, it was just a registration and orientation day which they were explaining the comptention's rule and also they distribtued some other stuff including interesting T-shirt! that has something on it!
 
 <p align="center">

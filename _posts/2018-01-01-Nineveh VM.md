@@ -7,7 +7,6 @@ tags: CTF Hacking ITsecurity vulnhub VM
 categories: 'VM'
 navigation: True
 ---
-<br>
 Nineveh Virtual Machine is publicaly available! Happy new Year everybody! With beginning of this year, I would like to make my vulnerable machine `Nineveh` available for everybody to try it on your own lab! This machine was a part of `Hackthebox` platform.
 
 ![alt text](/assets/images/nineveh.png "Logo Title Text 1")

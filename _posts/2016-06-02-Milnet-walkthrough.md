@@ -8,7 +8,6 @@ tags: CTF Hacking ITsecurity
 categories: 'CTF'
 navigation: True
 ---
-<br>
 <p>Hi everyone, finally I decided to write some of articls that releated to IT security, so I started with Milnet VM. First, starting with scanning the network to identify the VM's ip address </p>
 
 <h3 id="bigimage">scanning the network</h3>
