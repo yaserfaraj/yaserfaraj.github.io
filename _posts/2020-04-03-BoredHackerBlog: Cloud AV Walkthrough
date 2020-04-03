@@ -1,8 +1,8 @@
 ---
 layout: post
-cover: True
-cover: 'https://www.ubuntupit.com/wp-content/uploads/2020/02/Best-Cloud-Antivirus.jpg'
-title: "BoredHackerBlog: Cloud AV - Walkthrough"
+cover: False
+cover: ''
+title: "[VulnHub] - BoredHackerBlog: Cloud AV - Walkthrough"
 date:   2020-04-03 03:18:00
 tags: CTF Hacking ITsecurity
 categories: 'Vulnhub'
