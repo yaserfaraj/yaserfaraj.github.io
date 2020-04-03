@@ -1,3 +1,14 @@
+---
+layout: post
+cover: True
+cover: 'https://www.ubuntupit.com/wp-content/uploads/2020/02/Best-Cloud-Antivirus.jpg'
+title: "BoredHackerBlog: Cloud AV - Walkthrough"
+date:   2020-04-03 03:18:00
+tags: CTF Hacking ITsecurity
+categories: 'Vulnhub'
+navigation: True
+---
+
 Hi, here is my solution to get roon on `BoredHackerBlog: Cloud AV` VM, you can download it from [here](https://www.vulnhub.com/entry/boredhackerblog-cloud-av,453/).
 `BoredHackerBlog: Cloud AV` is an fun and easy machine that required simple webapp skills in order to get in the server.
 
