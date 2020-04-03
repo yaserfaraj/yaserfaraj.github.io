@@ -4,7 +4,7 @@ cover: False
 cover: ''
 title: "[VulnHub] - BoredHackerBlog: Cloud AV - Walkthrough"
 date:   2020-04-03 03:18:00
-tags: CTF Hacking ITsecurity
+tags: CTF Vulnhub Hacking ITsecurity
 categories: 'ctf'
 navigation: True
 ---
