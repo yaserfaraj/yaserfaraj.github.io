@@ -8,7 +8,7 @@ tags: CTF Vulnhub Hacking ITsecurity
 categories: 'ctf'
 navigation: True
 ---
-Hi, here is my solution to get roon on `BoredHackerBlog: Cloud AV` VM, you can download it from [here](https://www.vulnhub.com/entry/boredhackerblog-cloud-av,453/).
+Hi, here is my solution to get root on `BoredHackerBlog: Cloud AV` VM, you can download it from [here](https://www.vulnhub.com/entry/boredhackerblog-cloud-av,453/).
 `BoredHackerBlog: Cloud AV` is an fun and easy machine that required simple webapp skills in order to get in the server.
 
 
