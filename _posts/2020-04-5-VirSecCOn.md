@@ -171,29 +171,3 @@ if ( __name__ == "__main__" ):
 We can find the flag: `LLS{server_side_template_injection_unmasked}`
 
 
-### JaWT : Web Challenge
-
-From the name, it was obvious that we are dealing with `JWT` vulnerability. There is also another hint were mention `john`. So lets create a new user and capture the `jwt` and crack it with `hashcat`
-
-Here is : 
-```
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidGVzdCJ9.jbf34kzJ36YbWPQU69k-mlieDVmaWiIiAs6jPU1mH4o
-```
-
-Lets crack it with `hashcat` because why not
-```sh
-yas3r@linux[~/CTF/VirSecCon]$ hashcat -m 16500 jwt.hash /usr/share/wordlists/SecLists/Passwords/Leaked-Databases/rockyou.txt
-```
-
-```sh
-eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidGVzdCJ9.jbf34kzJ36YbWPQU69k-mlieDVmaWiIiAs6jPU1mH4o:fuckit
-```
-
-The secret=`fuckit`
-
-Now lets use jwt the online tool [here](https://jwt.io/#debugger-io?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4ifQ.qfSqP1u-gAhG6r8Vfb31Fi5WkjYCxjRKhFEcLCde8O0).
-
-by changing the user to `admin` and put the secret as `fuckit` and then resend it the server to see we are logged in as `admin`. Then, you will see the flag.
-
-Flag `LLS{jawt_was_just_what_you_thought}`
-
