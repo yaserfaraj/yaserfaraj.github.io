@@ -118,7 +118,7 @@ yas3r@linux[~/CTF/VirSecCon]$ echo PCFET0NUWVBFIGh0bWw+Cgo8aHRtbD4KICAgIDxoZWFkP
 ```
 ### Irregular Expressions : Web Challenge
 
-This one is pretty old but still works in CTF challenges. The vulnerability in `preg_replace` in `PHP`, more information [here](https://bitquark.co.uk/blog/2013/07/23/the_unexpected_dangers_of_preg_replace).
+This one is pretty old but still works in CTF challenges. The vulnerability in `preg_replace()` function in `PHP`, more information [here](https://bitquark.co.uk/blog/2013/07/23/the_unexpected_dangers_of_preg_replace).
 
 by adding in the filter field `/e system("cat flag_name_dont_guess_plz index.php ");` to read the flag `LLS{php_preg_replace_may_be_dangerous}`
 
