@@ -181,8 +181,7 @@ eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoidGVzdCJ9.jbf34kzJ36YbWPQU69k-ml
 
 The secret=`fuckit`
 
-Now lets use jwt the online tool [here](https://jwt.io/#debugger-io?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4ifQ.qfSqP1u-gAhG6r8Vfb31Fi5WkjYCxjRKhFEcLCde8O0).
-
+Now lets use jwt the online tool [here](https://jwt.io/#debugger-io?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWRtaW4ifQ.qfSqP1u-gAhG6r8Vfb31Fi5WkjYCxjRKhFEcLCde8O0) to create a new jwt string and sign it with `fuckit`.
 by changing the user to `admin` and put the secret as `fuckit` and then resend it the server to see we are logged in as `admin`. Then, you will see the flag.
 
 Flag `LLS{jawt_was_just_what_you_thought}`
