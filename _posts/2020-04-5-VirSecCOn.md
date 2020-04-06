@@ -35,7 +35,7 @@ yas3r@linux[~/CTF/VirSecCon]$ curl -H "user-agent: () { :; }; echo; echo; /bin/b
 LLS{woah_dude_radical_shellshock}
 ```
 
----
+
  
  ### HotAccess : Web Challenge
 
@@ -84,7 +84,7 @@ yas3r@linux[~/CTF/VirSecCon]
 
 the visit `http://jh2i.com:50016/sshh_dont_tell_i_hid_the_flag_here/flag.txt` to read the flag `LLS{htaccess_can_control_what_you_access}`
 
----
+
 
 ### GLHF : Web Challenge
 
@@ -120,7 +120,6 @@ yas3r@linux[~/CTF/VirSecCon]$ echo PCFET0NUWVBFIGh0bWw+Cgo8aHRtbD4KICAgIDxoZWFkP
     */
 ?>
 ```
----
 
 ### Irregular Expressions : Web Challenge
 
@@ -128,7 +127,6 @@ This one is pretty old but still works in CTF challenges. The vulnerability in `
 
 by adding in the filter field `/e system("cat flag_name_dont_guess_plz index.php ");` to read the flag `LLS{php_preg_replace_may_be_dangerous}`
 
----
 
 ### Mask : Web Challenge
 
@@ -172,7 +170,6 @@ if ( __name__ == "__main__" ):
 
 We can find the flag: `LLS{server_side_template_injection_unmasked}`
 
----
 
 ### JaWT : Web Challenge
 
@@ -199,8 +196,6 @@ Now lets use jwt the online tool [here](https://jwt.io/#debugger-io?token=eyJhbG
 by changing the user to `admin` and put the secret as `fuckit` and then resend it the server to see we are logged in as `admin`. Then, you will see the flag.
 
 Flag `LLS{jawt_was_just_what_you_thought}`
-
----
 
 ### PHPJuggler : Web Challenge
 
@@ -257,8 +252,6 @@ You got it! That's the correct flag!
 LLS{php_dropped_the_ball_again}
 ```
 
----
-
 ### Sequelitis : Web Challenge
 
 Here is a classic `SQL injection` 
@@ -309,6 +302,6 @@ Customers returned are:
 </pre>
 
 ```
----
+
 
 
