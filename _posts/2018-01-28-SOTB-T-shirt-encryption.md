@@ -1,7 +1,7 @@
 ---
 layout: post
 cover: True
-title: "SOTB2018 T-Shirt challenge"
+title: "[SOTB] T-Shirt challenge"
 date:   2018-01-28 12:00:00
 tags: CTF SOTB ITsecurity Encryption
 categories: 'CTF'
