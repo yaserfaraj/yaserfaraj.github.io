@@ -1,7 +1,7 @@
 ---
 layout: post
 cover: True
-title: "HackTheBox - Ariekei Walkthrough"
+title: "[HackTheBox] Ariekei Walkthrough"
 date:   2018-04-21 12:00:00
 tags: CTF HackTheBox Hacking Docker 
 categories: 'HackTheBox'
