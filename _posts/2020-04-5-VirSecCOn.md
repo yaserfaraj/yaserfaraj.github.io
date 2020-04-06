@@ -3,7 +3,7 @@ layout: post
 cover: False
 cover: ''
 title: "[VirSecCon2020] - Web Challenges Solutions"
-date:   2020-04-05 03:18:00
+date:   2020-04-05 08:10:00
 tags: CTF SQLI WebHacking ITsecurity
 categories: 'ctf'
 navigation: True
