@@ -1,7 +1,7 @@
 ---
 layout: post
 cover: True
-title: "Nineveh Virtual Machine"
+title: "[HackTheBox] Nineveh Virtual Machine"
 date:   2018-01-01 12:00:00
 tags: CTF Hacking ITsecurity vulnhub VM
 categories: 'VM'
