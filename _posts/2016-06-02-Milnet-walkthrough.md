@@ -2,7 +2,7 @@
 layout: post
 cover: True
 cover: '/assets/images/milnet/end.jpg'
-title: "Milnet: 1 - Walkthrough"
+title: "[Vulnhub] Milnet: 1 - Walkthrough"
 date:   2016-06-02 10:18:00
 tags: CTF Hacking ITsecurity
 categories: 'CTF'
