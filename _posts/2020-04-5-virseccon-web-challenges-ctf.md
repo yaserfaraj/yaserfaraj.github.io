@@ -11,7 +11,7 @@ navigation: True
 
 In this post, I will be showing my solutions from `VirSecCon`, it was a nice experince. Notice that I only spend copule of hours. I may add couple of other solutions from Web challenges. Thanks `John` for a nice experince.
 
-### Web Shell : Web Challenge
+### 10 Character Web Shell : Web Challenge
 
 Here is the source code for the challenges
 ```php
