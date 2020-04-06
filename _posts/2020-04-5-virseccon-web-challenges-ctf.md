@@ -145,16 +145,11 @@ app.config.from_object(__name__)
 app.secret_key = 'LLS{server_side_template_injection_unmasked}'
 
 
-##app.route('/', methods = ["GET", "POST"])
+@app.route('/', methods = ["GET", "POST"])
 def index(): 
-
     mask = "... you have not yet taken off your mask!"
 
-    if request.method == "POST":
-        mask = request.form['mask']
-    
-    return flask.render_template_string(  ''' {%  extends "layout.html"  %}
-    {%  block body  %} ''' + mask + ''' {%  endblock %} ''' )
+**Deleted**
 
 if ( __name__ == "__main__" ):
 
