@@ -1,7 +1,7 @@
 ---
 layout: post
 cover: True
-title: "SOTB - Flask Web Challenge "
+title: "[SOTB] Flask Web Challenge "
 date:   2018-04-08 12:00:00
 tags: CTF SOTB ITsecurity Web-Hacking
 categories: 'CTF'
