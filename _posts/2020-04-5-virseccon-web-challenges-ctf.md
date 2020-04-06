@@ -10,6 +10,9 @@ navigation: True
 ---
 ### Crush : Web Challenge
 
+In this post, I will be showing my solutions from `VirSecCon`, it was a nice experince. Notice that I only spend copule of hours. I may add couple of other solutions from Web challenges. Thanks `John` for a nice experince.
+
+
 It was a hint in the website about this vulnerability, then found the `crush.sh` file 
 
 ```sh
