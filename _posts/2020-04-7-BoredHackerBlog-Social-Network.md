@@ -8,7 +8,7 @@ tags: CTF Vulnhub Hacking ITsecurity
 categories: 'ctf'
 navigation: True
 ---
-In this post, I tryied [BoredHackerBlog: Social Network](https://www.vulnhub.com/entry/boredhackerblog-social-network,454/) from `vulnhub` website and it was a nice machine that required `meduim` skills in order to get in to it as root.
+In this post, I tried [BoredHackerBlog: Social Network](https://www.vulnhub.com/entry/boredhackerblog-social-network,454/) from `vulnhub` website and it was a nice machine that required `meduim` skills in order to get in to it as root.
 This machine required the following skills:
 
 ```
