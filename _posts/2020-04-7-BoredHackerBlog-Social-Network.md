@@ -161,7 +161,7 @@ msf5 exploit(multi/handler) > exploit
 Lets add a port forward so we can communicate with `elasticsearch` directly
 
 ```sh
-portfwd add –l 3389 –p 3389 –r 172.16.194.191
+portfwd add –l 9200 –p 9200 –r 172.17.0.2
 ```
 Search for the exploit 
 ```sh
