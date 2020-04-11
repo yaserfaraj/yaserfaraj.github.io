@@ -1,7 +1,7 @@
 ---
 layout: post
 cover: True
-cover: 'https://github.com/yaserfaraj/yaserfaraj.github.io/blob/master/assets/images/travexec-dash.png'
+cover: '/assets/images/travexec-dash.png'
 title: "[HackTheBox] - Traverxec - Walkthrough"
 date:   2020-04-11 07:18:00
 tags: CTF hackthebox Hacking ITsecurity
