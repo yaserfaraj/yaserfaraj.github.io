@@ -296,7 +296,7 @@ david@traverxec:~$
 ```
 
 We can see that `david` has `sudo` permission without password to execute `journalctl`. We found something useful on [GTFOBins](https://gtfobins.github.io/gtfobins/journalctl/). so lets use it. However, it is a bit tricky.
-first we execute `sudo journalctl -n5 -unostromo.service` and minimize the terminal till you notice it looks like `vim`. Then type `!/bin/bash`
+first we execute `sudo journalctl -n5 -unostromo.service` and minimize the terminal till you notice it looks like `less` command. Then type `!/bin/bash`
 
 ```bash
 Apr 10 18:29:03 traverxec cron[9204]: (CRON) DEATH (can't open or create 
